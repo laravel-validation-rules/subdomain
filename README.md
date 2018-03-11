@@ -27,3 +27,11 @@ composer require laravel-validation-rules/subdomain
 ```
 
 ## Usage
+
+```php
+use LVR\Subdomain\Subdomain;
+
+$request->validate([
+    'domain' => ['required', new Subdomain],
+]);
+```
