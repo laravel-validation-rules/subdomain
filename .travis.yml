@@ -25,11 +25,11 @@ cache:
 before_install:
 - travis_retry composer self-update
 - composer require "illuminate/contracts:5.${ILLUMINATE_MINOR_VERSION}.*" --no-update
-- composer require "orchestra/testbench:3.${ILLUMINATE_MINOR_VERSION}.*" --dev --no-update
-- composer require "phpunit/phpunit:^${PHP_UNIT}" --dev --no-update
+- composer require "orchestra/testbench:3.${ILLUMINATE_MINOR_VERSION}.*" --no-update
+- composer require "phpunit/phpunit:^${PHP_UNIT}" --no-update
 
 install:
-- travis_retry composer update --prefer-source --no-interaction --no-suggest --dev
+- travis_retry composer update --prefer-source --no-interaction --no-suggest
 
 script:
 - vendor/bin/phpunit --coverage-text --coverage-clover=coverage.clover
