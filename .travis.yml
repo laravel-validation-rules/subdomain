@@ -1,11 +1,14 @@
 language: php
 
+env:
+- PHP_UNIT=7.0
+
 matrix:
   include:
   - php: 7.1
-    env: ILLUMINATE_MINOR_VERSION=5
+    env: ILLUMINATE_MINOR_VERSION=5 PHP_UNIT=6.0
   - php: 7.2
-    env: ILLUMINATE_MINOR_VERSION=5
+    env: ILLUMINATE_MINOR_VERSION=5 PHP_UNIT=6.0
   - php: 7.1
     env: ILLUMINATE_MINOR_VERSION=6
   - php: 7.2
@@ -23,6 +26,7 @@ before_install:
 - travis_retry composer self-update
 - composer require "illuminate/contracts:5.${ILLUMINATE_MINOR_VERSION}.*" --no-update
 - composer require "orchestra/testbench:3.${ILLUMINATE_MINOR_VERSION}.*" --dev --no-update
+- composer require "phpunit/phpunit:^${PHP_UNIT}" --dev --no-update
 
 install:
 - travis_retry composer update --prefer-source --no-interaction --no-suggest --dev
