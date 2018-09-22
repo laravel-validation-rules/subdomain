@@ -20,6 +20,8 @@ Validates a user submitted subdomain in your application.
   </a>
 </p>
 
+Supports Laravel: 5.5, 5.6 & 5.7
+
 ## Installation
 
 ```bash
