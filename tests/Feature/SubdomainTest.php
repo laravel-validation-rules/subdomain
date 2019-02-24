@@ -39,12 +39,12 @@ class SubdomainTest extends TestCase
      */
     public function it_must_start_and_end_with_an_alpha_numeric_character()
     {
-        Assert::assertTrue($this->validate('testing')->passes());
+        Assert::assertTrue($this->validate('example')->passes());
 
-        Assert::assertFalse($this->validate('-testing')->passes());
-        Assert::assertFalse($this->validate('.testing')->passes());
-        Assert::assertFalse($this->validate('testing-')->passes());
-        Assert::assertFalse($this->validate('testing-')->passes());
+        Assert::assertFalse($this->validate('-example')->passes());
+        Assert::assertFalse($this->validate('.example')->passes());
+        Assert::assertFalse($this->validate('example-')->passes());
+        Assert::assertFalse($this->validate('example-')->passes());
     }
 
     /**
@@ -52,8 +52,8 @@ class SubdomainTest extends TestCase
      */
     public function it_can_contain_dashes()
     {
-        Assert::assertFalse($this->validate('-testing')->passes());
-        Assert::assertFalse($this->validate('testing-')->passes());
+        Assert::assertFalse($this->validate('-example')->passes());
+        Assert::assertFalse($this->validate('example-')->passes());
 
         Assert::assertTrue($this->validate('this-is-a-test')->passes());
     }
