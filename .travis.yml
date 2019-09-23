@@ -27,7 +27,7 @@ cache:
 
 before_install:
   - travis_retry composer self-update
-  - composer require "illuminate/contracts:${ILLUMINATE_MINOR_VERSION}" --no-update
+  - composer require "illuminate/contracts:${ILLUMINATE_VERSION}" --no-update
   - composer require "phpunit/phpunit:^${PHP_UNIT}" --no-update
 
 install:
