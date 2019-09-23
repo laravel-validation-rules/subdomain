@@ -3,49 +3,39 @@ language: php
 matrix:
   include:
   - php: 7.1
-    env: ILLUMINATE_MINOR_VERSION=5 PHP_UNIT=6.0
+    env: ILLUMINATE_VERSION="5.5.*" PHP_UNIT=6.0
   - php: 7.2
-    env: ILLUMINATE_MINOR_VERSION=5 PHP_UNIT=6.0
+    env: ILLUMINATE_VERSION="5.5.*" PHP_UNIT=6.0
   - php: 7.3
-    env: ILLUMINATE_MINOR_VERSION=5 PHP_UNIT=6.0
+    env: ILLUMINATE_VERSION="5.5.*" PHP_UNIT=6.0
     
   - php: 7.1
-    env: ILLUMINATE_MINOR_VERSION=6 PHP_UNIT=7.0
+    env: ILLUMINATE_VERSION="5.8.*" PHP_UNIT=7.0
   - php: 7.2
-    env: ILLUMINATE_MINOR_VERSION=6 PHP_UNIT=7.0
+    env: ILLUMINATE_VERSION="5.8.*" PHP_UNIT=7.0
   - php: 7.3
-    env: ILLUMINATE_MINOR_VERSION=6 PHP_UNIT=7.0
+    env: ILLUMINATE_VERSION="5.8.*" PHP_UNIT=7.0
     
-  - php: 7.1
-    env: ILLUMINATE_MINOR_VERSION=7 PHP_UNIT=7.0
   - php: 7.2
-    env: ILLUMINATE_MINOR_VERSION=7 PHP_UNIT=7.0
+    env: ILLUMINATE_VERSION="^6.0" PHP_UNIT=7.0
   - php: 7.3
-    env: ILLUMINATE_MINOR_VERSION=7 PHP_UNIT=7.0
-    
-  - php: 7.1
-    env: ILLUMINATE_MINOR_VERSION=8 PHP_UNIT=7.0
-  - php: 7.2
-    env: ILLUMINATE_MINOR_VERSION=8 PHP_UNIT=7.0
-  - php: 7.3
-    env: ILLUMINATE_MINOR_VERSION=8 PHP_UNIT=7.0
+    env: ILLUMINATE_VERSION="^6.0" PHP_UNIT=7.0
 
 cache:
   directories:
   - $HOME/.composer/cache
 
 before_install:
-- travis_retry composer self-update
-- composer require "illuminate/contracts:5.${ILLUMINATE_MINOR_VERSION}.*" --no-update
-- composer require "orchestra/testbench:3.${ILLUMINATE_MINOR_VERSION}.*" --no-update
-- composer require "phpunit/phpunit:^${PHP_UNIT}" --no-update
+  - travis_retry composer self-update
+  - composer require "illuminate/contracts:${ILLUMINATE_MINOR_VERSION}.*" --no-update
+  - composer require "phpunit/phpunit:^${PHP_UNIT}" --no-update
 
 install:
-- travis_retry composer update --prefer-source --no-interaction --no-suggest
+  - travis_retry composer update --prefer-source --no-interaction --no-suggest
 
 script:
-- vendor/bin/phpunit --coverage-text --coverage-clover=coverage.clover
+  - vendor/bin/phpunit --coverage-text --coverage-clover=coverage.clover
 
 after_script:
-- wget https://scrutinizer-ci.com/ocular.phar
-- php ocular.phar code-coverage:upload --format=php-clover coverage.clover
+  - wget https://scrutinizer-ci.com/ocular.phar
+  - php ocular.phar code-coverage:upload --format=php-clover coverage.clover
