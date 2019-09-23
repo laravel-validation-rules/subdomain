@@ -3,23 +3,23 @@ language: php
 matrix:
   include:
   - php: 7.1
-    env: ILLUMINATE_VERSION="5.5.*" PHP_UNIT=6.0
+    env: ILLUMINATE_VERSION="5.5.*" PHP_UNIT=7.0
   - php: 7.2
-    env: ILLUMINATE_VERSION="5.5.*" PHP_UNIT=6.0
+    env: ILLUMINATE_VERSION="5.5.*" PHP_UNIT=8.0
   - php: 7.3
-    env: ILLUMINATE_VERSION="5.5.*" PHP_UNIT=6.0
+    env: ILLUMINATE_VERSION="5.5.*" PHP_UNIT=8.0
     
   - php: 7.1
     env: ILLUMINATE_VERSION="5.8.*" PHP_UNIT=7.0
   - php: 7.2
-    env: ILLUMINATE_VERSION="5.8.*" PHP_UNIT=7.0
+    env: ILLUMINATE_VERSION="5.8.*" PHP_UNIT=8.0
   - php: 7.3
-    env: ILLUMINATE_VERSION="5.8.*" PHP_UNIT=7.0
+    env: ILLUMINATE_VERSION="5.8.*" PHP_UNIT=8.0
     
   - php: 7.2
-    env: ILLUMINATE_VERSION="^6.0" PHP_UNIT=7.0
+    env: ILLUMINATE_VERSION="^6.0" PHP_UNIT=8.0
   - php: 7.3
-    env: ILLUMINATE_VERSION="^6.0" PHP_UNIT=7.0
+    env: ILLUMINATE_VERSION="^6.0" PHP_UNIT=8.0
 
 cache:
   directories:
@@ -27,7 +27,7 @@ cache:
 
 before_install:
   - travis_retry composer self-update
-  - composer require "illuminate/contracts:${ILLUMINATE_MINOR_VERSION}.*" --no-update
+  - composer require "illuminate/contracts:${ILLUMINATE_MINOR_VERSION}" --no-update
   - composer require "phpunit/phpunit:^${PHP_UNIT}" --no-update
 
 install:
