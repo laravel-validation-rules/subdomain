@@ -15,9 +15,6 @@ Validates a user submitted subdomain in your application.
   <a href="https://github.com/laravel-validation-rules/subdomain/blob/master/LICENSE">
     <img src="https://img.shields.io/github/license/laravel-validation-rules/subdomain.svg?style=flat-square">
   </a>
-  <a href="https://twitter.com/clarkeash">
-    <img src="http://img.shields.io/badge/author-@clarkeash-blue.svg?style=flat-square">
-  </a>
 </p>
 
 Supports Laravel: 5.5, 5.6, 5.7 & 5.8
