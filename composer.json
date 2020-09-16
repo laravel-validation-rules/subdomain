@@ -7,10 +7,15 @@
         {
             "name": "Ashley Clarke",
             "email": "me@ashleyclarke.me"
-        }
+          },
+          {
+            "name": "Scott Robinson",
+            "email": "scott@dor.ky",
+            "homepage": "http://dor.ky"
+          }
     ],
     "require": {
-        "illuminate/contracts": "^5.5|^6.0|^7.0"
+        "illuminate/contracts": "^5.5|^6.0|^7.0|^8.0"
     },
     "require-dev": {
         "orchestra/testbench": "^3.5|^5.0",
